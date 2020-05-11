@@ -1,0 +1,6 @@
+.vscode/
+.ipynb_checkpoints/
+.DS_Store
+env/
+unity-environment.log
+**/__pycache__
