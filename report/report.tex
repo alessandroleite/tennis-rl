@@ -61,7 +61,7 @@ Exploration is one major challenge of learning in continuous action spaces. Ther
 
 \section{Results}
 
-The architecture is the same one proposed by \citeauthor{lillicrap:16}\cite{lillicrap:16}. Different from the original implementation, this work updates the actor and critic network \(10\) times every \(20\) steps. \Cref{tb:parameters} illustrates the values of the parameters of the networks. 
+The architecture is the same one proposed by \citeauthor{lillicrap:16}\cite{lillicrap:16}. \Cref{tb:parameters} illustrates the values of the parameters of the networks. 
 
 \Cref{fig:score} shows the performance of DDPG algorithm when solving the Reacher task. The algorithm required \(360\) episodes to solve the task.
 
@@ -84,8 +84,8 @@ For this kind of environment, the algorithms that employ a distributed approach 
 
 \begin{figure*}%[t!]
     \centering
-    \includegraphics[width=\textwidth]{ddpg_score}
-    \caption{Learning curve of the DDPG algorithms}\label{fig:score}
+    \includegraphics[width=\textwidth]{maddpg_score}
+    \caption{Learning curve of the MADDPG algorithms}\label{fig:score}
 \end{figure*}
 
 \bibliographystyle{IEEEtranN}
