@@ -49,7 +49,7 @@ This project requires **Python 3.6** and for the libraries check the `requiremen
 
 ## 4. Instructions
 
-Follow the instructions in `notebooks/Tennis.ipynb` to start training your own agent!
+Follow the instructions in `Tennis.ipynb` to start training your own agent!
 
 ## 5. References
 

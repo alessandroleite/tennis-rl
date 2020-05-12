@@ -45,7 +45,7 @@ The observation space consists of eight variables corresponding to the position 
 
 \section{Method}
 
-The proposed solution relies on Deep Deterministic Policy Gradient~(DDPG) algorithm proposed by~\citeauthor{lillicrap:16}~\cite{lillicrap:16}. DDPG is an off-policy actor-critic algorithm that uses deep function approximators to learn policies in high-dimensional continuous action spaces. It is based on the deterministic policy gradient algorithm~(DGP) algorithm~\citeauthor{silver:14}. DPG algorithm maintains an actor function \(\mu(s|\theta^\mu)\) to specify an policy that maps states to a specific action. Similar to Q-learning, the critic \(Q(s,a)\) function relies on Bellman equation and the actor is updated by applying the chain rule to the expected return from the start distribution \(J\) with respect to the actor parameters~\cite{lillicrap:16}:
+The proposed solution relies on Deep Deterministic Policy Gradient~(DDPG) algorithm proposed by~\citeauthor{lillicrap:16}~\cite{lillicrap:16} and on multi-agent deep deterministic policy gradient~(MADDPG)~\cite{lowe:17} algorithm. DDPG is an off-policy actor-critic algorithm that uses deep function approximators to learn policies in high-dimensional continuous action spaces. It is based on the deterministic policy gradient algorithm~(DGP) algorithm~\citeauthor{silver:14}. DPG algorithm maintains an actor function \(\mu(s|\theta^\mu)\) to specify an policy that maps states to a specific action. Similar to Q-learning, the critic \(Q(s,a)\) function relies on Bellman equation and the actor is updated by applying the chain rule to the expected return from the start distribution \(J\) with respect to the actor parameters~\cite{lillicrap:16}:
 
 \begin{equation*}
    \begin{aligned}
@@ -53,7 +53,7 @@ The proposed solution relies on Deep Deterministic Policy Gradient~(DDPG) algori
    \end{aligned}
 \end{equation*}
 
-Exploration is one major challenge of learning in continuous action spaces. Therefore, off-policy algorithms such as DDPG can handle the exploration problem independent from the learning algorithm. The DDPG algorithm employs an exploration policy \(\mu^\prime\) by adding noise sampled from an Ornstein-Uhlenbeck process~\(\mathcal{N}\) to the actor policy. 
+% Exploration is one major challenge of learning in continuous action spaces. Therefore, off-policy algorithms such as DDPG can handle the exploration problem independent from the learning algorithm. The DDPG algorithm employs an exploration policy \(\mu^\prime\) by adding noise sampled from an Ornstein-Uhlenbeck process~\(\mathcal{N}\) to the actor policy. 
 
 \begin{equation*}
 \mu^{\prime}\left(s_{t}\right)=\mu\left(s_{t} | \theta_{t}^{\mu}\right)+\mathcal{N}
