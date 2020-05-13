@@ -1,3 +1,5 @@
+from typing import Mapping
+
 import numpy as np
 import random
 
@@ -8,16 +10,15 @@ from ddpg.buffer import ReplayBuffer
 
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
-class MultiAgent:
+class MultiAgent(object):
 
-    def __init__(self, num_agents, state_size, action_size, buffer_size, seed, update_frequency=4, n_learns=1):
+    def __init__(self, num_agents, state_size, action_size, seed, hyperparameters:Mapping[str, float]):
         """Initialize a multi-agent object """
         self.action_size = action_size 
         self.__name__ = 'MADDPG'
-        memory = ReplayBuffer(action_size, buffer_size, seed, device)
-        self.agents = [DDPGAgent(id, state_size, action_size, seed, memory, num_agents, device, \
-                                 update_frequency=update_frequency, n_learns=n_learns) for id in range(num_agents)] 
-        self.seed = random.seed(seed)
+        memory = ReplayBuffer(action_size, hyperparameters['buffer_size'], device)
+        self.agents = [DDPGAgent(id, state_size, action_size, seed, memory, num_agents, hyperparameters) for id in range(num_agents)] 
+        
 
     def step(self, states, actions, rewards, next_states, dones):
         experience = zip(self.agents, states, actions, rewards, next_states, dones)
