@@ -63,7 +63,7 @@ The proposed solution relies on Deep Deterministic Policy Gradient~(DDPG) algori
 
 The architecture is the same one proposed by \citeauthor{lillicrap:16}\cite{lillicrap:16}. \Cref{tb:parameters} illustrates the values of the parameters of the networks. 
 
-\Cref{fig:score} shows the performance of DDPG algorithm when solving the Reacher task. The algorithm required \(360\) episodes to solve the task.
+\Cref{fig:score} shows the performance of MADDPG algorithm when solving the tennis task. The algorithm required \(3629\) episodes to solve the task.
 
 For this kind of environment, the algorithms that employ a distributed approach to distribute the tasks usually lead to a better performance.
 
@@ -87,6 +87,8 @@ For this kind of environment, the algorithms that employ a distributed approach 
     \includegraphics[width=\textwidth]{maddpg_score}
     \caption{Learning curve of the MADDPG algorithms}\label{fig:score}
 \end{figure*}
+
+A future improvement includes the use of prioritized experience replay~\cite{schaul:15} as not all the stored experiences have the same importance. Likewise, important experiences might rarely occur, and thus, they have small chances to be selected. Furthermore, since buffers have limited capacity, important experiences may get lost. Another one comprises in employing hindsight experience replay~\cite{andrychowicz:17} to deal with the problem of sparse rewards. Finally, using other agent algorithm such as Dreamer~\cite{hafner:20} to try to reduce computation time. 
 
 \bibliographystyle{IEEEtranN}
 \bibliography{references}
